@@ -50,7 +50,7 @@ RSpec.describe "ActiveRecord Anonymization" do
       User.create(email: "anonymous@example.com", name: "test")
       user = User.create(email: "test@example.com", name: "test")
 
-      expect(user).to receive(:update).exactly(retries_count + 1).times.and_call_original
+      expect(user).to receive(:update_attributes).exactly(retries_count + 1).times.and_call_original
       expect { user.anonymize }.to raise_error(::ActiveRecord::RecordNotUnique)
     end
   end
@@ -73,7 +73,7 @@ RSpec.describe "ActiveRecord Anonymization" do
       User.create(email: "anonymous@example.com", name: "test")
       user = User.create(email: "test@example.com", name: "test")
 
-      expect(user).to receive(:update!).exactly(retries_count + 1).times.and_call_original
+      expect(user).to receive(:update_attributes!).exactly(retries_count + 1).times.and_call_original
       expect { user.anonymize! }.to raise_error(::ActiveRecord::RecordNotUnique)
     end
   end

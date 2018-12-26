@@ -82,7 +82,7 @@ user.phone_number
 ```
 
 The only difference between `anonymize!` and `anonymize` is that the former
-calls `update!` and the latter calls `update`.
+calls `update_attributes!` and the latter calls `update_attributes`.
 
 ## Configuration
 
