@@ -1,7 +1,7 @@
 require "anonymous/version"
 require "anonymous/configuration"
 require "anonymous/anonymizer"
-require "anonymous/active_record"
+require "anonymous/active_record" if defined? ::ActiveRecord
 
 module Anonymous
   def configure

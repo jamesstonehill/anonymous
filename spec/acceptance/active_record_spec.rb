@@ -1,4 +1,7 @@
 require "active_record"
+# Need to require this after requiring active_record because we only require the
+# ActiveRecord functionality if the ActiveRecord constant is defined
+require "anonymous/active_record"
 
 RSpec.describe "ActiveRecord Anonymization" do
   before(:all) do
