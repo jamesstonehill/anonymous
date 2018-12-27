@@ -1,8 +1,9 @@
 require_relative './anonymizer'
+require_relative './not_implemented_error'
 
 module Anonymous
   # This module handles anonymization for ActiveRecord models. In order to
-  # impliment this module you must define a private #anonymization_definitions
+  # implement this module you must define a private #anonymization_definitions
   # method in your model.
   #
   # Retry Functionality:
@@ -33,6 +34,14 @@ module Anonymous
 
       @anonymization_attempts += 1
       retry
+    end
+
+    private
+
+    def anonymization_definitions
+      message = "Class #{self.class.name} must implement an #anonymization_definitions method to use the Anonymous::ActiveRecord functionality."
+
+      raise NotImplementedError, message
     end
   end
 end

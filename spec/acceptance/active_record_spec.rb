@@ -80,4 +80,23 @@ RSpec.describe "ActiveRecord Anonymization" do
       expect { user.anonymize! }.to raise_error(::ActiveRecord::RecordNotUnique)
     end
   end
+
+  context "when the class does not implement a #anonymization_definitions method" do
+    it "raises an error" do
+      klass = Class.new(ActiveRecord::Base) do
+        include Anonymous::ActiveRecord
+
+        def self.table_name
+          "users"
+        end
+
+        def self.name
+          "SomeClassName"
+        end
+      end
+
+      message = "Class SomeClassName must implement an #anonymization_definitions method to use the Anonymous::ActiveRecord functionality."
+      expect { klass.new.anonymize }.to raise_error(Anonymous::NotImplementedError, message)
+    end
+  end
 end
