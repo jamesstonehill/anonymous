@@ -1,6 +1,6 @@
 # Anonymous
 [![Gem Version](https://badge.fury.io/rb/anonymous.svg)](https://badge.fury.io/rb/anonymous)
-[![Build Status](https://travis-ci.com/jamesstonehill/anonymous.svg?branch=master)](https://travis-ci.com/jamesstonehill/anonymous)
+[![Build Status](https://travis-ci.org/jamesstonehill/anonymous.svg?branch=master)](https://travis-ci.org/jamesstonehill/anonymous)
 
 Anonymous is a light-weight gem that makes anonymizing ActiveRecord models easy!
 Remember, friends don't let friends use production data in
